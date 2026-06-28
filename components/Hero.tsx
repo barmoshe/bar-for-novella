@@ -36,7 +36,7 @@ export default function Hero() {
               <a
                 href={cvHref}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener"
                 download
                 className="rounded-full btn-gold px-7 py-3.5 text-[15px] font-bold transition hover:opacity-95"
               >
