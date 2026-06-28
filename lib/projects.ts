@@ -1,0 +1,67 @@
+export type Project = {
+  name: string;
+  blurb: string;
+  tag: string;
+  href: string;
+  /** which brand token tints the tile */
+  accent: "purple" | "gold" | "mauve" | "plum";
+  /** feature tiles span two columns on desktop */
+  span?: 2;
+};
+
+/**
+ * Shipped proofs, ordered for an AI-engineering audience: agentic + AI-tooling +
+ * data work first, then the product and full-stack demos. Blurbs in Bar's plain
+ * "I" voice.
+ */
+export const PROJECTS: Project[] = [
+  {
+    name: "MDP",
+    blurb:
+      "An open-source compiler that turns one Markdown source into design-locked decks, pages and docs, built for AI agents to write into. Zero-dependency Node engine with an MCP server for Claude, published on npm.",
+    tag: "Open source · AI tooling",
+    href: "https://barmoshe.github.io/mdp/",
+    accent: "purple",
+    span: 2,
+  },
+  {
+    name: "Agent-operated workshop",
+    blurb:
+      "The Claude Code studio this page came out of: skills, hooks, evals and decision logs that let one builder ship AI products with the throughput of a small team.",
+    tag: "AI agents · Systems",
+    href: "https://bar-builds.vercel.app/portfolio/",
+    accent: "gold",
+  },
+  {
+    name: "Temporal Data Service",
+    blurb:
+      "A cross-language data-processing service on Temporal: durable, fault-tolerant workflows with Go, Python and TypeScript workers under one orchestration. Featured on Temporal's official Code Exchange.",
+    tag: "Data · Durable workflows",
+    href: "https://temporal.io/code-exchange/cross-language-data-processing-service-with-temporal",
+    accent: "mauve",
+  },
+  {
+    name: "Biome Synth",
+    blurb:
+      "A generative browser instrument with an AI DJ, taken from a Claude interview skill through to a live app. An LLM-driven product, shipped.",
+    tag: "Generative · LLM product",
+    href: "https://biome-synth.lovable.app/",
+    accent: "plum",
+  },
+  {
+    name: "Israelify",
+    blurb:
+      "A full-stack Spotify-style app: React front end with my own Node and MongoDB backend, REST API, auth and middleware. TypeScript end to end.",
+    tag: "Full stack · TypeScript",
+    href: "https://github.com/barmoshe/Israelify-backend",
+    accent: "purple",
+  },
+  {
+    name: "Apartment Hunter",
+    blurb:
+      "A real-estate decision tool: side-by-side comparison, Israeli purchase-tax brackets, a full mortgage calculator. Product-grade UI, shipped solo.",
+    tag: "Product · Web app",
+    href: "https://apartment-hunter-one.vercel.app",
+    accent: "gold",
+  },
+];

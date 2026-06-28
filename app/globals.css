@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Novella design system, rebuilt from bynovella.com and elevated.
+   Light, lavender-tinted canvas; deep-plum ink; a purple -> plum gradient with a
+   signature gold accent; Poppins for UI, Libre Baskerville for the serif flourish.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Brand */
+  --color-plum: #371d41; /* deep plum ink + primary dark */
+  --color-plum-2: #512f5e; /* raised plum */
+  --color-purple: #9139b2; /* vivid purple accent */
+  --color-mauve: #80588f; /* muted purple */
+  --color-gold: #ffd673; /* signature gold accent */
+  --color-gold-deep: #d79704; /* gold, text-contrast safe */
+
+  /* Surfaces, light + lavender */
+  --color-paper: #fcfbfc; /* page background */
+  --color-lavender: #f9f7f9;
+  --color-lavender-2: #ece4f0;
+  --color-line: #ece4f0; /* hairline borders */
+
+  /* Text */
+  --color-ink: #2a1f33; /* body on light */
+  --color-muted: #6f667a; /* secondary text */
+
+  --shadow-soft: 0 1px 2px rgba(55, 29, 65, 0.04), 0 10px 34px rgba(55, 29, 65, 0.08);
+  --shadow-card: 0 14px 48px rgba(55, 29, 65, 0.12);
+  --shadow-gold: 0 10px 34px rgba(215, 151, 4, 0.22);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-serif: var(--font-baskerville), Georgia, "Times New Roman", serif;
+}
+
+:root {
+  --header-h: 64px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  background: var(--color-paper);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* The signature purple -> plum gradient as clipped text. */
+@utility gradient-text {
+  background-image: linear-gradient(100deg, var(--color-purple), var(--color-plum-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Serif display flourish. */
+@utility serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Gradient pill button (primary CTA). */
+@utility btn-gradient {
+  background-image: linear-gradient(100deg, var(--color-purple), var(--color-plum-2));
+  box-shadow: 0 10px 30px rgba(81, 47, 94, 0.32);
+  color: #fff;
+}
+
+/* Gold pill button (accent CTA). */
+@utility btn-gold {
+  background-image: linear-gradient(100deg, var(--color-gold), #f3b53d);
+  box-shadow: var(--shadow-gold);
+  color: var(--color-plum);
+}
+
+/* Frosted card on the light canvas. */
+@utility glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- motion ------------------------------------------------------------- */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+.float {
+  animation: float 7s ease-in-out infinite;
+}
+
+/* Dash flowing along the placement connectors. */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.dash-flow {
+  stroke-dasharray: 4 8;
+  animation: dash-flow 1.1s linear infinite;
+}
+
+/* Pulse traveling from submission to a market node. */
+@keyframes orbit-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+.orbit-pulse {
+  animation: orbit-pulse 2.6s ease-out infinite;
+}
+
+/* Slow orbit-ring rotation behind the submission node. */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin-slow 26s linear infinite;
+}
+
+/* Soft glow breathing on the gold "bound" marker. */
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.glow {
+  animation: glow 2.4s ease-in-out infinite;
+}
+
+/* Scroll-reveal: starts hidden, .is-in removes the offset. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .dash-flow,
+  .orbit-pulse,
+  .glow,
+  .spin-slow {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
