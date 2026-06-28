@@ -8,6 +8,7 @@ export default function Footer() {
         <span className="flex items-center gap-5">
           <a href={mailtoHref} className="transition hover:text-plum">Email</a>
           <a href={whatsappHref} target="_blank" rel="noreferrer" className="transition hover:text-plum">WhatsApp</a>
+          <a href="/Bar_Moshe_Resume.pdf" download target="_blank" rel="noopener" className="transition hover:text-plum">Download CV</a>
           <a href={githubHref} target="_blank" rel="noreferrer" className="transition hover:text-plum">GitHub</a>
         </span>
         <span>Made for Novella. Not affiliated.</span>
