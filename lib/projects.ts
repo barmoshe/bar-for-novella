@@ -25,11 +25,11 @@ export const PROJECTS: Project[] = [
     span: 2,
   },
   {
-    name: "Agent-operated workshop",
+    name: "Creative Harness",
     blurb:
-      "The Claude Code studio this page came out of: skills, hooks, evals and decision logs that let one builder ship AI products with the throughput of a small team.",
-    tag: "AI agents · Systems",
-    href: "https://bar-builds.vercel.app/portfolio/",
+      "An open AI agent harness for Claude Code: skills, hooks and tooling that let one builder ship like a small team.",
+    tag: "Open source · AI agents",
+    href: "https://github.com/barmoshe/claude-creative-stack",
     accent: "gold",
   },
   {
