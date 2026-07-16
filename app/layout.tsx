@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Poppins, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
@@ -44,6 +45,11 @@ export default function RootLayout({
       className={`${poppins.variable} ${baskerville.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <Script
+          src="https://bar-for-companies.vercel.app/track.js"
+          data-bar-for-id="novella"
+          strategy="afterInteractive"
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-plum focus:px-4 focus:py-2 focus:text-white"
